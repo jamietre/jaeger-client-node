@@ -10,7 +10,7 @@ describe('memoryfs', () => {
       'baz/foo2.txt': 'fizz',
     });
     assert.equal(fs.readFileSync(`${root}/foo.txt`), 'bar');
-    assert.equal(fs.readFileSync(`${root}/baz/foo.txt`), 'fizz');
+    assert.equal(fs.readFileSync(`${root}/baz/foo2.txt`), 'fizz');
   });
   it('fails if file is missing', () => {
     const root = __dirname;

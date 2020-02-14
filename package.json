@@ -1,6 +1,6 @@
 {
   "name": "jaeger-client",
-  "version": "3.17.4-dev",
+  "version": "3.17.5-dev",
   "description": "Jaeger binding for OpenTracing API for Node.js",
   "engines": {
     "node": ">=0.10"
@@ -16,8 +16,10 @@
   "files": ["dist/src"],
   "contributors": ["Yuri Shkuro <ys@uber.com>", "Won Jun Jang <wjang@uber.com>", "Jaeger Authors <jaeger-tracing@googlegroups.com>"],
   "dependencies": {
+    "callsite": "^1.0.0",
     "node-int64": "^0.4.0",
     "opentracing": "^0.13.0",
+    "tchannel": "^4.0.0",
     "thriftrw": "^3.5.0",
     "uuid": "^3.2.1",
     "xorshift": "^0.2.0"

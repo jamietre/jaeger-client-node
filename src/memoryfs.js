@@ -11,7 +11,7 @@ export class MemoryFs {
 
   readFileSync(filePath: string) {
     if (!path.isAbsolute(filePath)) {
-      filePath = path.join(path.resolve(path.dirname(module.parent.filename)), filePath);
+      filePath = path.join(path.resolve(__dirname, filePath));
     }
 
     const target = slash(path.relative(this.root, filePath));
