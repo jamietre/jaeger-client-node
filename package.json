@@ -1,6 +1,6 @@
 {
   "name": "jaeger-client",
-  "version": "3.17.3dev",
+  "version": "3.17.4-dev",
   "description": "Jaeger binding for OpenTracing API for Node.js",
   "engines": {
     "node": ">=0.10"
@@ -55,7 +55,6 @@
     "semver": "^5",
     "sinon": "^1.17.5",
     "source-map-support": "^0.4.5",
-    "tchannel": "^3.9.0",
     "uber-licence": "^2.0.2",
     "underscore": "^1.8.3"
   },

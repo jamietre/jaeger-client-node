@@ -10,12 +10,13 @@ export class MemoryFs {
   }
 
   readFileSync(filePath: string) {
-    ensureAbsolute(filePath);
+    if (!path.isAbsolute(filePath)) {
+      filePath = path.join(path.resolve(path.dirname(module.parent.filename)), filePath);
+    }
 
-    const target = path.relative(this.root, filePath);
+    const target = slash(path.relative(this.root, filePath));
     const out = this.data[target];
     if (!out) {
-      npm;
       throw new Error(
         `The path resolved to "${target}" was not found in MemoryFs.\nfilePath=${filePath}\nthis.root="${
           this.root
@@ -26,12 +27,7 @@ export class MemoryFs {
   }
 }
 
-function ensureAbsolute(filePath: string) {
-  if (!path.isAbsolute(filePath)) {
-    throw new Error('Relative paths are not supported.');
-  }
-}
-
+// ensure windows paths are stored consistently in the cache
 function slash(somePath) {
   return somePath.replace(/\\/g, '/');
 }
