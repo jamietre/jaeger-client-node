@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) {
 
 describe('memoryfs', function() {
   it('simple', function() {
-    var root = __dirname;
+    var root = process.cwd();
     var fs = new _memoryfs.MemoryFs(root, {
       'foo.txt': 'bar',
       'baz/foo2.txt': 'fizz',
@@ -25,14 +25,14 @@ describe('memoryfs', function() {
     _assert2.default.equal(fs.readFileSync(root + '/baz/foo2.txt'), 'fizz');
   });
   it('fails if file is missing', function() {
-    var root = __dirname;
+    var root = process.cwd();
     var fs = new _memoryfs.MemoryFs(root, {});
     _assert2.default.throws(function() {
       fs.readFileSync(root + '/foo.txt');
     });
   });
   it('relative path', function() {
-    var root = _path2.default.resolve(__dirname + '/../');
+    var root = _path2.default.resolve(process.cwd() + '/../');
     var fs = new _memoryfs.MemoryFs(root, {
       'foo.txt': 'bar',
     });

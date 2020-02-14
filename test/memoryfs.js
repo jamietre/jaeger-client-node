@@ -4,7 +4,7 @@ import assert from 'assert';
 
 describe('memoryfs', () => {
   it('simple', () => {
-    const root = __dirname;
+    const root = process.cwd();
     const fs = new MemoryFs(root, {
       'foo.txt': 'bar',
       'baz/foo2.txt': 'fizz',
@@ -13,14 +13,14 @@ describe('memoryfs', () => {
     assert.equal(fs.readFileSync(`${root}/baz/foo2.txt`), 'fizz');
   });
   it('fails if file is missing', () => {
-    const root = __dirname;
+    const root = process.cwd();
     const fs = new MemoryFs(root, {});
     assert.throws(() => {
       fs.readFileSync(`${root}/foo.txt`);
     });
   });
   it('relative path', () => {
-    const root = path.resolve(`${__dirname}/../`);
+    const root = path.resolve(`${process.cwd()}/../`);
     const fs = new MemoryFs(root, {
       'foo.txt': 'bar',
     });

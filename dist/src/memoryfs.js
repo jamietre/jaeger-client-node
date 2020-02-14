@@ -53,7 +53,7 @@ var MemoryFs = (exports.MemoryFs = (function() {
       key: 'readFileSync',
       value: function readFileSync(filePath) {
         if (!_path2.default.isAbsolute(filePath)) {
-          filePath = _path2.default.join(_path2.default.resolve(__dirname, filePath));
+          filePath = _path2.default.join(_path2.default.resolve(process.cwd(), filePath));
         }
 
         var target = slash(_path2.default.relative(this.root, filePath));
