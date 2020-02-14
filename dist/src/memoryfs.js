@@ -82,7 +82,7 @@ function slash(somePath) {
   return somePath.replace(/\\/g, '/');
 }
 
-var idlFs = new MemoryFs(__dirname, _thrift2.default);
+var idlFs = new MemoryFs(process.cwd(), _thrift2.default);
 
 exports.default = idlFs;
 //# sourceMappingURL=memoryfs.js.map

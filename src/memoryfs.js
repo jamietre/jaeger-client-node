@@ -32,6 +32,6 @@ function slash(somePath) {
   return somePath.replace(/\\/g, '/');
 }
 
-const idlFs = new MemoryFs(__dirname, ThriftData);
+const idlFs = new MemoryFs(process.cwd(), ThriftData);
 
 export default idlFs;
