@@ -12,7 +12,7 @@
 // the License.
 
 import * as constants from './constants.js';
-import fs from 'fs';
+import fs from '../../src/memoryfs';
 import path from 'path';
 import dns from 'dns';
 import DefaultContext from '../../src/default_context';

@@ -12,7 +12,7 @@
 
 import { assert } from 'chai';
 import dgram from 'dgram';
-import fs from 'fs';
+import fs from '../../src/memoryfs';
 import EndToEndHandler from '../src/endtoend_handler';
 import path from 'path';
 import request from 'request';
@@ -32,6 +32,7 @@ describe('Endtoend Handler should', () => {
     server = dgram.createSocket('udp4');
     server.bind(PORT, HOST);
     thrift = new Thrift({
+      fs,
       entryPoint: path.join(__dirname, '../../src/thriftrw-idl/agent.thrift'),
       allowOptionalArguments: true,
       allowFilesystemAccess: true,

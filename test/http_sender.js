@@ -17,7 +17,7 @@ import { raw } from 'body-parser';
 import { assert, expect } from 'chai';
 import ConstSampler from '../src/samplers/const_sampler.js';
 import https from 'https';
-import fs from 'fs';
+import fs from '../src/memoryfs';
 import path from 'path';
 import semver from 'semver';
 import InMemoryReporter from '../src/reporters/in_memory_reporter.js';
@@ -53,6 +53,7 @@ describe('http sender', () => {
 
   beforeEach(() => {
     thrift = new Thrift({
+      fs,
       source: fs.readFileSync(path.join(__dirname, '../src/jaeger-idl/thrift/jaeger.thrift'), 'ascii'),
       allowOptionalArguments: true,
     });

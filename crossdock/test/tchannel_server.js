@@ -23,7 +23,7 @@ import TChannelServer from '../src/tchannel_server.js';
 import TChannelAsThrift from 'tchannel/as/thrift';
 import TChannel from 'tchannel';
 import Tracer from '../../src/tracer.js';
-import fs from 'fs';
+import fs from '../../src/memoryfs';
 import path from 'path';
 import Utils from '../../src/util.js';
 

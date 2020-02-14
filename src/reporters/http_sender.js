@@ -11,7 +11,7 @@
 // or implied. See the License for the specific language governing permissions and limitations under
 // the License.
 
-import fs from 'fs';
+import fs from '../memoryfs';
 import http from 'http';
 import https from 'https';
 import path from 'path';
@@ -55,6 +55,7 @@ export default class HTTPSender {
 
     this._logger = options.logger || new NullLogger();
     this._jaegerThrift = new Thrift({
+      fs,
       source: fs.readFileSync(path.join(__dirname, '../jaeger-idl/thrift/jaeger.thrift'), 'ascii'),
       allowOptionalArguments: true,
     });
